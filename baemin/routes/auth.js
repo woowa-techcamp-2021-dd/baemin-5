@@ -9,6 +9,7 @@ router.post('/login', (req, res) => {
   const { email, password } = req.body;
   console.log('req.body : ', req.body);
   console.log('e, pw : ', email, password);
+  
   db.find({ email, password }, (err, savedData) => {
     if (err) return;
     console.log('saveData : ', savedData);
