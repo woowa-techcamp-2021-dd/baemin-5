@@ -4,7 +4,9 @@ const router = express.Router();
 const TITLE = '배민마트';
 
 router.get('/', (req, res) => {
-  res.render('mainPage', { pageTitle: `${TITLE}` });
+  const user = req.session.user
+  console.log('main user', user) 
+  res.render('mainPage', { pageTitle: `${TITLE}`,user:user});
 });
 
 router.get('/login', (req, res) => {

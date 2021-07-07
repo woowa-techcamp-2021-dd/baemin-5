@@ -1,4 +1,9 @@
+<<<<<<< Updated upstream
 {"phoneNumber":"dd@naver.com","nickname":"dd","password":"12345678","birth":"930528","_id":"N09wysG9O4T3XewD"}
 {"phoneNumber":"test@naver.com","nickname":"test","password":"9988","birth":"970524","_id":"u3QPksCJPyLQoS5R"}
 {"email":"testtest@naver.com","nickname":"testest","birth":"939393","password":"$2b$10$PAZR/jZ.UzM2kMLI/B6yd.j9VnXy3Uizd7/w6ZvQ9BlHIXQGcgOye","_id":"Sr52naTd38VhCJ4x"}
 {"email":"testtest@naver.com","nickname":"testest","birth":"939393","password":"$2b$10$PAZR/jZ.UzM2kMLI/B6yd.j9VnXy3Uizd7/w6ZvQ9BlHIXQGcgOye","_id":"Sr52naTd38VhCJ4x"}
+=======
+{"email":"test2@gmail.com","nickname":"test2","birth":"101010","password":"$2b$10$n4WVsB7ELXREbYQIGAJQn.DIpl21GtHZRFZe7qSuZR1DWLx69WY2m","_id":"9BuQRpEcvBo2Vq4Q"}
+{"email":"test@naver.com","nickname":"test","birth":"939393","password":"$2b$10$DtNeprSdQYQ2Zh8qewpy9uK2kFW4qRDHVSIaXZnDfPi4qO.M6Le0m","_id":"9PhQjZiFeC2oBDSN"}
+>>>>>>> Stashed changes

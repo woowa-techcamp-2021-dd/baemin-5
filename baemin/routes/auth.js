@@ -7,20 +7,26 @@ const SALT_ROUND = 10;
 
 router.post('/login', (req, res) => {
   const { email, password } = req.body;
-  console.log('req.body : ', req.body);
-  console.log('e, pw : ', email, password);
-  
-  db.find({ email, password }, (err, savedData) => {
+  db.find({ email }, (err, savedData) => {
     if (err) return;
-    console.log('saveData : ', savedData);
+    const findData = savedData[0];
 
-    if (!savedData.length) {
+    if (!findData) {
       console.log('그런거 없수');
       res.redirect('/login');
       return;
     }
 
+    if (req.session.user) {
+      console.log('세션에 저장이 됐따!');
+      console.log('세션에 저장: ', req.session.user);
+    } else {
+      req.session.user = { email, password, nickname: findData.nickname };
+      console.log('else! ', req.session);
+    }
+
     console.log('그런거 있슴');
+    res.cookie('sessionID', req.sessionID);
     res.redirect('/');
   });
 });
@@ -34,7 +40,6 @@ router.post('/signup', (req, res) => {
       console.error(err);
       return;
     }
-    console.log('signupDB : ', signupDB);
     res.redirect('/login');
   });
 });
