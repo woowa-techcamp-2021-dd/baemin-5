@@ -1,0 +1,80 @@
+@import './reset.css';
+html,
+body {
+  height: 100%;
+}
+.nextBtn {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #bbb;
+}
+
+.container {
+  height: 100%;
+  position: relative;
+  margin: 0 10px;
+}
+
+.flex_sb {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flex_vc {
+  display: flex;
+  align-items: center;
+}
+
+.flex_c {
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.header > div {
+  flex: 1;
+}
+
+.close {
+  font-size: 1.5rem;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.input_box > input {
+  border: none;
+  border-bottom: 1px solid silver;
+  height: 3rem;
+  font-size: 1.3rem;
+}
+
+.input_box > input:focus {
+  outline: none;
+}
+.input_box {
+  margin-top: 3rem;
+}
+.submitBtn {
+  width: 100%;
+  height: 3rem;
+  border: none;
+  margin-top: 4rem;
+  font-size: 1.1rem;
+  border-radius: 0.5rem;
+  background: #28c1bc;
+  color: white;
+}
