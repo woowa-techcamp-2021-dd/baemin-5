@@ -1,17 +1,43 @@
-const express = require("express");
-const nedb = require("nedb");
-const path = require("path");
-const route = require("./route.js");
+const express = require('express');
+
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
+const session = require('express-session');
+const { uuid } = require('uuidv4');
+
+const router = require('./routes/route.js');
+const authRouter = require('./routes/auth.js');
 
 const app = express();
 const port = process.env.PORT | 8080;
+app.set('view engine', 'pug');
+app.set('views', path.join(__dirname, 'src/template'));
 
-app.set("view engine", "pug");
-app.set("views", path.join(__dirname, "src/template"));
+app.use(express.static(path.join(__dirname, 'src')));
 
-app.use(express.static(path.join(__dirname, "src")));
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+app.use(cookieParser());
 
-app.use("/", route);
+app.use(
+  session({
+    secret: 'AC1D396576A7ABB5F73AF68F8AE31',
+    httpOnly: true,
+    resave: true,
+    saveUninitialized: true,
+    // maxAge: 100 * 60 * 60 * 24,
+    genid: (req) => uuid(),
+    cookie: {
+      httpOnly: true,
+      secure: false,
+    },
+  }),
+);
+
+app.use('/', router);
+app.use('/auth', authRouter);
+
 app.listen(port, () => {
   console.log(`http://localhost:${port}`);
 });
