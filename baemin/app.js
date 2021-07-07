@@ -1,8 +1,10 @@
-const express = require("express");
-const nedb = require("nedb");
-const path = require("path");
-const bodyParser = require("body-parser");
-const route = require("./route.js");
+const express = require('express');
+
+const path = require('path');
+const bodyParser = require('body-parser');
+
+const router = require('./routes/route.js');
+const authRouter = require('./routes/auth.js');
 
 const app = express();
 const port = process.env.PORT | 8080;
@@ -15,11 +17,8 @@ app.use(express.static(path.join(__dirname, 'src')));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.use("/", route);
-
-app.post("/", (req, res) => {
-  console.log(req.body);
-});
+app.use('/', router);
+app.use('/auth', authRouter);
 
 app.listen(port, () => {
   console.log(`http://localhost:${port}`);

@@ -19,4 +19,8 @@ router.get('/phone', (req, res) => {
   res.render('phonePage', { pageTitle: `${TITLE}-휴대전화` });
 });
 
+router.get('/signup', (req, res) => {
+  res.render('signupPage', { pageTitle: `${TITLE}-회원가입` });
+});
+
 module.exports = router;

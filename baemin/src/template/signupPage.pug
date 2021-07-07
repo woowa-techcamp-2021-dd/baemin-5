@@ -1,0 +1,30 @@
+html 
+    head 
+        meta(name="viewport", content="width=device-width, initial-scale=1")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(charset='utf-8')
+        title #{pageTitle}
+        link(rel="stylesheet", href="../css/signup.css")
+        script(defer, src="../js/main.js") 
+    body 
+        div.container    
+            header.header 
+                div.flex_vc.close  <
+                div.flex_vc.center 회원가입
+                div.right 
+            section
+                 form(action='/auth/signup',method='POST')
+                    div.flex_c.input_box
+                        label(for='email') 이메일
+                        input(type="email" id="email" name="email" placeholder="휴대전화 번호를 입력하세요.") 
+                    div.flex_c.input_box
+                        label(for='nickname') 닉네임
+                        input(type="text" id="nickname" name="nickname" placeholder="휴대전화 번호를 입력하세요.") 
+                    div.flex_c.input_box
+                        label(for='password') 비밀번호
+                        input(type="password" id="password" name="password" placeholder="휴대전화 번호를 입력하세요.") 
+                    div.flex_c.input_box
+                        label(for='birth') 생년월일
+                        input(type="number" id="birth" name="birth" placeholder="휴대전화 번호를 입력하세요.") 
+                    div
+                        button.submitBtn 회원가입 하기
