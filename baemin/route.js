@@ -7,7 +7,7 @@ router.get('/', (req, res) => {
   res.render('mainPage', { pageTitle: `${TITLE}` });
 });
 
-router.get('/', (req, res) => {
+router.get('/login', (req, res) => {
   res.render('loginPage', { pageTitle: `${TITLE}` });
 });
 
