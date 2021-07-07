@@ -1,0 +1,72 @@
+doctype html 
+
+html 
+    head 
+        meta(name="viewport" content="width=device-width, initial-scale=1")
+        meta(http-equiv="X-UA-Compatible" content="IE=edge")
+        title #{pageTitle} | 배민 마트
+        link(rel="stylesheet", href="../css/mainPage.css")
+        script(defer, src="../js/main.js") 
+    body 
+        header
+            .header_title My배민
+            .header_banner 배너
+        main 
+            section
+                a(href="/login").login_btn 
+                    .login_btn_column
+                        .avatar_img 
+                        .login_title 로그인해주세요
+                    .login_btn_column 
+                        .next_btn >
+            section
+                ul.category
+                    li.category_item 
+                        .category_avatar_img 
+                        .category_title 포인트
+                    li.category_item 
+                        .category_avatar_img 
+                        .category_title 쿠폰함
+                    li.category_item 
+                        .category_avatar_img 
+                        .category_title 선물함
+                    li.category_item 
+                        .category_avatar_img 
+                        .category_title 찜
+                    li.category_item 
+                        .category_avatar_img 
+                        .category_title 주문내역
+                    li.category_item 
+                        .category_avatar_img 
+                        .category_title 리뷰관리
+            .section_divider 
+            section
+                .eco_btn 
+                    .eco_btn_column
+                        .avatar_img 
+                        .eco_title 일회용품 덜쓰기 함께해요
+                    .eco_btn_column 
+                        .next_btn >       
+            .section_divider 
+            section 
+                ul.menu 
+                    li.menu_item
+                        .menu_info 
+                            .menu_title 배민페이 등록
+                            .menu_desc 베인페이로 결제하면 최대 5.5% 배민포인트가 적립됩니다!
+                        .next_btn >
+                    li.menu_item
+                        .menu_info 
+                            .menu_title 가족계정 관리
+                            .menu_desc 결제수단을 공유해 우리 가족의 끼니를 챙겨주세요
+                        .next_btn >
+                    li.menu_item
+                        .menu_info 
+                            .menu_title 공지사항
+                        .next_btn >
+                    li.menu_item
+                        .menu_info 
+                            .menu_title 배민커넥트 지원
+                        .next_btn >
+
+        footer
