@@ -21,7 +21,7 @@ router.post('/login', (req, res) => {
       console.log('세션에 저장이 됐따!');
       console.log('세션에 저장: ', req.session.user);
     } else {
-      req.session.user = { email, password, nickname: findData.nickname };
+      req.session.user = findData;
       console.log('else! ', req.session);
     }
 
