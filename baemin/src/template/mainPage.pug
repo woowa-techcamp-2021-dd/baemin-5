@@ -1,0 +1,48 @@
+doctype html 
+
+html 
+    head 
+        meta(name="viewport" content="width=device-width, initial-scale=1")
+        meta(http-equiv="X-UA-Compatible" content="IE=edge")
+        title #{pageTitle} | 배민 마트
+        link(rel="stylesheet", href="../css/mainPage.css")
+        script(defer, src="../js/main.js") 
+    body 
+        header
+            .header_title My배민
+            .header_banner 배너
+        main 
+            a(href="/login").login_btn 
+                .login_btn_column
+                    .avatar_img 
+                    .login_title 로그인해주세요
+                .login_btn_column 
+                    .next_btn >
+            section
+                ul.menu
+                    li.menu_item 
+                        .menu_avatar_img 
+                        .menu_title 포인트
+                    li.menu_item 
+                        .menu_avatar_img 
+                        .menu_title 쿠폰함
+                    li.menu_item 
+                        .menu_avatar_img 
+                        .menu_title 선물함
+                    li.menu_item 
+                        .menu_avatar_img 
+                        .menu_title 찜
+                    li.menu_item 
+                        .menu_avatar_img 
+                        .menu_title 주문내역
+                    li.menu_item 
+                        .menu_avatar_img 
+                        .menu_title 리뷰관리
+            .section_divider 
+            a(href="/login").eco_btn 
+                .eco_btn_column
+                    .avatar_img 
+                    .eco_title 일회용품 덜쓰기 함께해요
+                .eco_btn_column 
+                    .next_btn >       
+        footer
