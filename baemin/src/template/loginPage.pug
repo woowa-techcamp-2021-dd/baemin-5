@@ -1,0 +1,31 @@
+doctype html 
+
+html 
+    head 
+        meta(name="viewport" content="width=device-width, initial-scale=1")
+        meta(http-equiv="X-UA-Compatible" content="IE=edge")
+        title #{pageTitle} | 배민 마트
+        link(rel="stylesheet", href="../css/loginPage.css")
+        script(defer, src="../js/main.js") 
+    body 
+        header.header
+            .header_icon X
+        main 
+            section.login
+                form.login_form(action="")
+                    input.login_input(type="email", name="login_email", id="login_email",placeholder="아이디 또는 이메일")
+                    input.login_input(type="password", name="login_password", id="login_pw",placeholder="비밀번호")
+                    button.login_btn 로그인해주세요
+                .login_find_btns 
+                    .login_find_btn 아이디 찾기
+                    .divider 
+                    .login_find_btn 비밀번호 찾기
+        footer.footer
+            .social_login
+                .social_login_btn 페이스북 로그인
+                .social_login_btn 네이버 로그인
+                .social_login_btn 애플 로그인
+            .create_user
+                span 혹시 배달의 민족이 처음이신가요?
+                a.create_user_link(href="/create")
+                    span 회원가입 
