@@ -4,7 +4,9 @@ const router = express.Router();
 const TITLE = '배민마트';
 
 router.get('/', (req, res) => {
-  res.render('mainPage', { pageTitle: `${TITLE}` });
+  const user = req.session.user
+  console.log('main user', user) 
+  res.render('mainPage', { pageTitle: `${TITLE}`,user:user});
 });
 
 router.get('/login', (req, res) => {
@@ -17,6 +19,10 @@ router.get('/agreement', (req, res) => {
 
 router.get('/phone', (req, res) => {
   res.render('phonePage', { pageTitle: `${TITLE}-휴대전화` });
+});
+
+router.get('/signup', (req, res) => {
+  res.render('signupPage', { pageTitle: `${TITLE}-회원가입` });
 });
 
 module.exports = router;

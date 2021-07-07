@@ -12,10 +12,10 @@ html
             .header_icon X
         main 
             section.login
-                form.login_form(action="")
-                    input.login_input(type="email", name="login_email", id="login_email",placeholder="아이디 또는 이메일")
-                    input.login_input(type="password", name="login_password", id="login_pw",placeholder="비밀번호")
-                    button.login_btn 로그인해주세요
+                form.login_form(action="/auth/login" method="post")
+                    input.login_input(type="email", name="email", id="login_email",placeholder="아이디 또는 이메일")
+                    input.login_input(type="password", name="password", id="login_pw",placeholder="비밀번호")
+                    button(type="submit").login_btn 로그인해주세요 
                 .login_find_btns 
                     .login_find_btn 아이디 찾기
                     .divider 
