@@ -4,10 +4,10 @@ html
         meta(http-equiv="X-UA-Compatible", content="IE=edge")
         meta(charset='utf-8')
         title #{pageTitle}
-        //- link(rel="stylesheet", href="pages/signupPage/userInfoPage/userInfo.css")
-        //- script(type="module", defer, src="pages/signupPage/userInfoPage/userInfo.js") 
-        link(rel="stylesheet", href="./userInfo.css")
-        script(type="module", defer, src="./userInfo.js") 
+        link(rel="stylesheet", href="pages/signupPage/userInfoPage/userInfo.css")
+        script(type="module", defer, src="pages/signupPage/userInfoPage/userInfo.js") 
+        //- link(rel="stylesheet", href="./userInfo.css")
+        //- script(type="module", defer, src="./userInfo.js") 
     body 
         div.container    
             header.header 
@@ -22,7 +22,7 @@ html
                             div.mark
                                 input(type="email" id="userinfo_email" name="userinfo_email" placeholder="이메일을 입력하세요.") 
                         button#confirm_email_btn 중복체크
-                    div#userinfo_detail
+                    div#userinfo_detail.hidden
                         div.flex_c.input_box.mark
                             label(for='nickname') 닉네임
                             input(type="text" id="userinfo_nickname" name="userinfo_nickname" placeholder="닉네임을 입력하세요."

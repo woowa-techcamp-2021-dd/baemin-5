@@ -1,4 +1,5 @@
 import { _, setDisabledOfButton } from '../../../js/utils/dom.js';
+const $signupBtn = _.$('#userinfo_form .submitBtn');
 
 const isBackSpace = (keyCode) => keyCode === 8;
 
@@ -7,6 +8,7 @@ const toogleConfirm = ($input) => {
   if (!$targetDIV || !$targetDIV.classList.contains('mark')) return;
 
   $targetDIV.classList.toggle('confirmed');
+  isAllConfirmed($signupBtn);
 };
 
 const setConfirm = ($input, isConfirm) => {
@@ -14,8 +16,17 @@ const setConfirm = ($input, isConfirm) => {
   if (!$targetDIV || !$targetDIV.classList.contains('mark')) return;
 
   isConfirm ? $targetDIV.classList.add('confirmed') : $targetDIV.classList.remove('confirmed');
+  isAllConfirmed($signupBtn);
 };
 
+const isAllConfirmed = ($signupBtn) => {
+  const $$confirmes = _.$$('.confirmed');
+  if ($$confirmes.length === 4) {
+    setDisabledOfButton($signupBtn, false);
+  } else {
+    setDisabledOfButton($signupBtn, true);
+  }
+};
 const handleClickConfirmBtn = ({ $userinfoDetail, $emailInput }, e) => {
   //   e.preventDefault();
   setDisabledOfButton(e.target, true);
