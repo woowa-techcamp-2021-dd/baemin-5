@@ -18,7 +18,7 @@ html
                 div.greeting
                     p 어서오세요. 
                     p 약관동의가 필요해요.
-                form#agreement_form(action="", method="post")
+                form#agreement_form(action="/agreement", method="post")
                     div.all_greement
                         input(type="checkbox", id="all", name="all")
                         label(for="all") 전체동의
@@ -32,6 +32,7 @@ html
                             div
                                 input(type="checkbox" ,id="necessary2" ,name="necessary") 
                                 label(for="necessary2") 전자금융거래 이용약관 동의
+                            span.nextBtn >
                         div.flex_sb
                             div
                                 input(type="checkbox" ,id="necessary3" ,name="necessary") 
@@ -52,7 +53,7 @@ html
                             input(type="radio" ,id="over14" ,name="age" ,value="over14" checked) 
                             label(for="over14") 만 14세 이상입니다 
                         div.age_box.flex_vc
-                            input(type="radio" ,id="under14" ,name="age" ,value="under14")
+                            input(type="radio" ,isd="under14" ,name="age" ,value="under14")
                             div.flex_c
                                 label(for="under14") 만 16세 미만입니다. 
                                 div 본인확인이 된 보호자의 배민계정이 필요해요. 
