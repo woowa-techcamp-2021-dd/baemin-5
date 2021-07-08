@@ -1,29 +1,45 @@
-import { _ } from '../../../js/utils/dom.js';
+import { _, setDisabledOfButton } from '../../../js/utils/dom.js';
 
-const switchDash = (phoneNumber) => {
+const getInsertedDashNumber = (phoneNumber, keyCode) => {
+  const length = phoneNumber.length;
   const originNumber = phoneNumber.replace(/\-/g, '');
-  return (
-    originNumber.substr(0, 3) + '-' + originNumber.substr(3, 4) + '-' + originNumber.substr(7, 4)
-  );
+
+  if (keyCode === 8) {
+    if (length === 12)
+      return (
+        originNumber.slice(0, 3) + '-' + originNumber.slice(3, 6) + '-' + originNumber.slice(6)
+      );
+    return phoneNumber;
+  }
+
+  if (length === 4) return phoneNumber.slice(0, 3) + '-' + phoneNumber[3];
+
+  if (length === 8) return phoneNumber.slice(0, 7) + '-' + phoneNumber[7];
+
+  if (length === 9 && phoneNumber[7] !== '-')
+    return (phoneNumber = phoneNumber.slice(0, 7) + '-' + phoneNumber.slice(7));
+
+  if (length === 13)
+    return originNumber.slice(0, 3) + '-' + originNumber.slice(3, 7) + '-' + originNumber.slice(7);
+
+  return phoneNumber;
 };
 
-const handleInput = ({ target, keyCode }) => {
-  if (keyCode === 8 || keyCode === 46) return;
+const handleInput = ({ $requestCertificationBtn }, { target, keyCode }) => {
+  target.value = getInsertedDashNumber(target.value, keyCode);
 
-  const length = target.value.length;
-  if (length === 4) target.value = target.value.slice(0, 3) + '-' + target.value[3];
-
-  if (length === 8) target.value = target.value.slice(0, 7) + '-' + target.value[7];
-
-  if (length === 9 && target.value[7] !== '-')
-    target.value = target.value.slice(0, 7) + '-' + target.value.slice(7);
-
-  if (length === 13) target.value = switchDash(target.value);
+  if (target.value.length === 11) setDisabledOfButton($requestCertificationBtn, true);
+  if (target.value.length >= 12) setDisabledOfButton($requestCertificationBtn, false);
 };
 
 const init = () => {
   const $phoneNumberInput = _.$('#phoneNumber');
-  $phoneNumberInput.addEventListener('keyup', handleInput);
+  const $requestCertificationBtn = _.$('#request_certification_btn');
+  const $nextBtn = _.$('#next_btn');
+  $phoneNumberInput.addEventListener(
+    'keyup',
+    handleInput.bind(null, { $requestCertificationBtn, $nextBtn }),
+  );
 };
 
 init();
