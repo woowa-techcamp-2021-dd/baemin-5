@@ -92,3 +92,7 @@ body {
   border: none;
   border-radius: 0.5rem;
 }
+
+.submitBtn:disabled {
+  opacity: 0.5;
+}
