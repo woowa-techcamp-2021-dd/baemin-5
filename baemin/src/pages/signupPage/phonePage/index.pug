@@ -1,0 +1,28 @@
+html 
+    head 
+        meta(name="viewport", content="width=device-width, initial-scale=1")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(charset='utf-8')
+        title #{pageTitle}
+        link(rel="stylesheet", href="pages/signupPage/phonePage/phone.css")
+        script(type="module",defer, src="pages/signupPage/phonePage/phone.js") 
+    body 
+        div.container    
+            header.header 
+                div.flex_vc.close  X
+                div.flex_vc.center 회원가입
+                div
+            section
+                 form#certification_request_form
+                    div.flex_c.phone
+                        label(for='phone') 휴대전화
+                        input(type="tel" id="phoneNumber" pattern="[0-9]{3}-[0-9]{3,4}-[0-9]{4}" name="phoneNumber" maxlength="13" placeholder="휴대전화 번호를 입력하세요.") 
+                    div
+                        button.submitBtn#request_certification_btn(disabled) 인증번호 받기
+                 form(action='/signup/phone',method='POST')#certification_form
+                    div.flex_c.certification
+                        label(for='certification') 인증번호
+                        input(type="number" id="certification_input" name="certification" placeholder="인증번호를 입력해주세요")
+                        div#reSubmitBtn 인증번호 다시받기
+                    div.flex_c.certification
+                        button.submitBtn#next_btn(disabled) 다음으로

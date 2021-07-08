@@ -3,46 +3,31 @@ const express = require('express');
 const bcrypt = require('bcrypt');
 const router = express.Router();
 
-const SALT_ROUND = 10;
-
 router.post('/login', (req, res) => {
   const { email, password } = req.body;
   db.find({ email }, (err, savedData) => {
     if (err) return;
     const findData = savedData[0];
-    
-    const isValidPassword = bcrypt.compareSync(findData.password, password);
 
-    if (!findData || !isValidPassword) {
-      console.log('그런거 없수');
+    if (!findData) {
+      console.log('그런 이메일 없수');
       res.redirect('/login');
       return;
     }
 
-    if (req.session.user) {
-      console.log('세션에 저장이 됐따!');
-      console.log('세션에 저장: ', req.session.user);
-    } else {
-      req.session.user = findData;
-      console.log('else! ', req.session);
-    }
+    const isValidPassword = bcrypt.compareSync(password, findData.password);
 
-    console.log('그런거 있슴');
-    res.cookie('sessionID', req.sessionID);
-    res.redirect('/');
-  });
-});
-
-router.post('/signup', (req, res) => {
-  const { email, password, nickname, birth } = req.body;
-  const encryptPassword = bcrypt.hashSync(password, SALT_ROUND);
-
-  db.insert({ email, nickname, birth, password: encryptPassword }, (err, signupDB) => {
-    if (err) {
-      console.error(err);
+    if (!isValidPassword) {
+      console.log('비밀번호 틀렸수');
+      res.redirect('/login');
       return;
     }
-    res.redirect('/login');
+
+    if (!req.session.user) req.session.user = findData;
+
+    console.log('로그인 성공!');
+    res.cookie('sessionID', req.sessionID);
+    res.redirect('/');
   });
 });
 

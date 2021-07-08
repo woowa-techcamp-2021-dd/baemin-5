@@ -5,16 +5,18 @@ html
         meta(name="viewport" content="width=device-width, initial-scale=1")
         meta(http-equiv="X-UA-Compatible" content="IE=edge")
         title #{pageTitle} | 배민 마트
-        link(rel="stylesheet", href="../css/loginPage.css")
-        script(defer, src="../js/main.js") 
+        link(rel="stylesheet", href="pages/loginPage/loginPage.css")
+        script(type="module", defer, src="pages/loginPage/login.js") 
     body 
         header.header
             .header_icon X
         main 
             section.login
-                form.login_form(action="/auth/login" method="post")
+                form.login_form#login_form(action="/auth/login" method="post")
                     input.login_input(type="email", name="email", id="login_email",placeholder="아이디 또는 이메일")
+                    .login_err_box#login_email_err 
                     input.login_input(type="password", name="password", id="login_pw",placeholder="비밀번호")
+                    .login_err_box#login_pw_err 
                     button(type="submit").login_btn 로그인해주세요 
                 .login_find_btns 
                     .login_find_btn 아이디 찾기

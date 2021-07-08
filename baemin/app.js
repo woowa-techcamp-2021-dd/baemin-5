@@ -8,11 +8,12 @@ const { uuid } = require('uuidv4');
 
 const router = require('./routes/route.js');
 const authRouter = require('./routes/auth.js');
+const signupRouter = require('./routes/signup.js');
 
 const app = express();
 const port = process.env.PORT | 8080;
 app.set('view engine', 'pug');
-app.set('views', path.join(__dirname, 'src/template'));
+app.set('views', path.join(__dirname, 'src/pages'));
 
 app.use(express.static(path.join(__dirname, 'src')));
 
@@ -37,6 +38,7 @@ app.use(
 
 app.use('/', router);
 app.use('/auth', authRouter);
+app.use('/signup', signupRouter);
 
 app.listen(port, () => {
   console.log(`http://localhost:${port}`);

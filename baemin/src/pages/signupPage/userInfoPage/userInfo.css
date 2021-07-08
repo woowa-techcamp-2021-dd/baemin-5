@@ -1,4 +1,4 @@
-@import './reset.css';
+@import '../../../css/reset.css';
 html,
 body {
   height: 100%;
@@ -49,46 +49,32 @@ body {
   justify-content: center;
   align-items: center;
 }
-
-.greeting {
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
+.right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
 
-.greeting p + p {
-  margin-top: 0.5rem;
-}
-
-.all_greement {
+.input_box > input {
+  border: none;
   border-bottom: 1px solid silver;
-  padding: 1rem 0;
+  height: 3rem;
+  font-size: 1.3rem;
 }
 
-.check_list > div {
-  margin-top: 1rem;
+.input_box > input:focus {
+  outline: none;
 }
-
-.age_box {
-  background: #f1f1f1;
-  height: 4rem;
-  margin: 0.5rem 0;
+.input_box {
+  margin-top: 3rem;
 }
-
-.age_box label {
-  font-size: 1.1rem;
-  font-weight: bold;
-  margin-bottom: 0.5rem;
-}
-
 .submitBtn {
-  position: absolute;
-  bottom: 3rem;
   width: 100%;
   height: 3rem;
-  color: white;
-  background: rgb(47, 202, 176);
-  outline: none;
   border: none;
+  margin-top: 4rem;
+  font-size: 1.1rem;
   border-radius: 0.5rem;
+  background: #28c1bc;
+  color: white;
 }
