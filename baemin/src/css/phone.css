@@ -50,14 +50,20 @@ body {
   align-items: center;
 }
 
-.phone > input[type='tel'] {
+.phone > input[type='tel'],
+.certification > input[type='number'] {
   border: none;
   border-bottom: 1px solid silver;
   height: 3rem;
   font-size: 1.3rem;
 }
 
-.phone > input[type='tel']:focus {
+.certification {
+  margin-top: 4rem;
+}
+
+.phone > input[type='tel']:focus,
+.certification > input[type='number']:focus {
   outline: none;
 }
 
@@ -68,4 +74,15 @@ body {
   margin-top: 4rem;
   font-size: 1.1rem;
   border-radius: 0.5rem;
+}
+
+.certification > .submitBtn {
+  margin: 0;
+}
+
+.certification #reSubmitBtn {
+  border: none;
+  background-color: #fff;
+  margin-top: 8px;
+  color: blue;
 }
