@@ -1,4 +1,5 @@
 import { _, setDisabledOfButton } from '../../../js/utils/dom.js';
+import 'regenerator-runtime/runtime';
 
 const getInsertedDashNumber = (phoneNumber, keyCode) => {
   const length = phoneNumber.length;
@@ -32,13 +33,41 @@ const handleInput = ({ $requestCertificationBtn }, { target, keyCode }) => {
   if (target.value.length >= 12) setDisabledOfButton($requestCertificationBtn, false);
 };
 
+const getRandomNum = () => String(Math.random()).slice(2, 6);
+
+const getCertification = () =>
+  new Promise((resolve) => setTimeout(() => resolve(getRandomNum()), 2000));
+
+const handleRequestCertification = async ({ $cerificationInput, $nextBtn }, e) => {
+  e.preventDefault();
+  const certification = await getCertification();
+  if (!certification) {
+    console.log('인증번호 못 받음');
+  }
+  $cerificationInput.value = certification;
+  $nextBtn.disabled = false;
+};
+
 const init = () => {
   const $phoneNumberInput = _.$('#phoneNumber');
   const $requestCertificationBtn = _.$('#request_certification_btn');
   const $nextBtn = _.$('#next_btn');
+  const $cerificationInput = _.$('#certification_input');
+  const $requestCertificationForm = _.$('#certification_request_form');
+  const $reRequestBtn = _.$('#reSubmitBtn');
+
   $phoneNumberInput.addEventListener(
     'keyup',
-    handleInput.bind(null, { $requestCertificationBtn, $nextBtn }),
+    handleInput.bind(null, { $requestCertificationBtn}),
+  );
+
+  $requestCertificationForm.addEventListener(
+    'submit',
+    handleRequestCertification.bind(null, { $cerificationInput, $nextBtn }),
+  );
+  $reRequestBtn.addEventListener(
+    'click',
+    handleRequestCertification.bind(null, { $cerificationInput, $nextBtn }),
   );
 };
 
