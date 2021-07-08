@@ -37,20 +37,24 @@ const getRandomNum = () => String(Math.random()).slice(2, 6);
 const getCertification = () =>
   new Promise((resolve) => setTimeout(() => resolve(getRandomNum()), 2000));
 
-const handleRequestCertification = async ({ $cerificationInput, $nextBtn }, e) => {
+const handleRequestCertification = async (
+  { $cerificationInput, $nextBtn, $certificationForm },
+  e,
+) => {
   e.preventDefault();
   const certification = await getCertification();
-  if (!certification) {
-    console.log('인증번호 못 받음');
-  }
+
   $cerificationInput.value = certification;
   $nextBtn.disabled = false;
+  if (e.target.id === 'certification_request_form') $certificationForm.classList.remove('hidden');
 };
 
 const init = () => {
   const $phoneNumberInput = _.$('#phoneNumber');
   const $requestCertificationBtn = _.$('#request_certification_btn');
   const $nextBtn = _.$('#next_btn');
+
+  const $certificationForm = _.$('#certification_form');
   const $cerificationInput = _.$('#certification_input');
   const $requestCertificationForm = _.$('#certification_request_form');
   const $reRequestBtn = _.$('#reSubmitBtn');
@@ -59,7 +63,7 @@ const init = () => {
 
   $requestCertificationForm.addEventListener(
     'submit',
-    handleRequestCertification.bind(null, { $cerificationInput, $nextBtn }),
+    handleRequestCertification.bind(null, { $cerificationInput, $nextBtn, $certificationForm }),
   );
   $reRequestBtn.addEventListener(
     'click',

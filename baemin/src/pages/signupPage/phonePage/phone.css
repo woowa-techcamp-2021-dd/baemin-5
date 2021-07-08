@@ -89,3 +89,7 @@ submitBtn:disabled {
   margin-top: 8px;
   color: blue;
 }
+
+.hidden {
+  visibility: hidden;
+}
