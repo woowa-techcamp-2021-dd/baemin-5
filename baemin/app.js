@@ -12,7 +12,7 @@ const authRouter = require('./routes/auth.js');
 const app = express();
 const port = process.env.PORT | 8080;
 app.set('view engine', 'pug');
-app.set('views', path.join(__dirname, 'src/template'));
+app.set('views', path.join(__dirname, 'src/pages'));
 
 app.use(express.static(path.join(__dirname, 'src')));
 

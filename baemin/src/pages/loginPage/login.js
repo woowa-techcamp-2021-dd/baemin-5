@@ -1,5 +1,5 @@
-import { _ } from './utils/dom.js';
-import { MESSAGE } from './constant.js';
+import { _ } from '../../js/utils/dom.js';
+import { MESSAGE } from '../../js/constant.js';
 
 const handleSubmit = ({ $inputEmail, $inputPw, $errEmailBox, $errPwBox }, e) => {
   const inputedEmail = $inputEmail.value;

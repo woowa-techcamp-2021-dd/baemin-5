@@ -1,4 +1,4 @@
-@import './reset.css';
+@import '../../../css/reset.css';
 html,
 body {
   height: 100%;
@@ -49,24 +49,25 @@ body {
   justify-content: center;
   align-items: center;
 }
+.right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
 
-.phone > input[type='tel'],
-.certification > input[type='number'] {
+.input_box > input {
   border: none;
   border-bottom: 1px solid silver;
   height: 3rem;
   font-size: 1.3rem;
 }
 
-.certification {
-  margin-top: 4rem;
-}
-
-.phone > input[type='tel']:focus,
-.certification > input[type='number']:focus {
+.input_box > input:focus {
   outline: none;
 }
-
+.input_box {
+  margin-top: 3rem;
+}
 .submitBtn {
   width: 100%;
   height: 3rem;
@@ -74,15 +75,6 @@ body {
   margin-top: 4rem;
   font-size: 1.1rem;
   border-radius: 0.5rem;
-}
-
-.certification > .submitBtn {
-  margin: 0;
-}
-
-.certification #reSubmitBtn {
-  border: none;
-  background-color: #fff;
-  margin-top: 8px;
-  color: blue;
+  background: #28c1bc;
+  color: white;
 }

@@ -10,11 +10,17 @@ router.post('/login', (req, res) => {
   db.find({ email }, (err, savedData) => {
     if (err) return;
     const findData = savedData[0];
-    
+
+    if (!findData) {
+      console.log('그런 이메일 없수');
+      res.redirect('/login');
+      return;
+    }
+
     const isValidPassword = bcrypt.compareSync(findData.password, password);
 
-    if (!findData || !isValidPassword) {
-      console.log('그런거 없수');
+    if (!isValidPassword) {
+      console.log('비밀번호 틀렸수');
       res.redirect('/login');
       return;
     }
