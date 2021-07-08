@@ -4,8 +4,8 @@ html
         meta(http-equiv="X-UA-Compatible", content="IE=edge")
         meta(charset='utf-8')
         title #{pageTitle}
-        link(rel="stylesheet", href="pages/signupPage/userInfoPage/signup.css")
-        script(defer, src="pages/signupPage/userInfoPage/userInfo.js") 
+        link(rel="stylesheet", href="pages/signupPage/userInfoPage/userinfo.css")
+        script(type="module", defer, src="pages/signupPage/userInfoPage/userInfo.js") 
     body 
         div.container    
             header.header 
@@ -13,7 +13,7 @@ html
                 div.flex_vc.center 회원가입
                 div.right 
             section
-                 form(action='/auth/signup',method='POST')
+                 form(action='/signup/userinfo',method='POST')
                     div.flex_c.input_box
                         label(for='email') 이메일
                         input(type="email" id="email" name="email" placeholder="휴대전화 번호를 입력하세요.") 

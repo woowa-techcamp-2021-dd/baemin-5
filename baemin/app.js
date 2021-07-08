@@ -8,6 +8,7 @@ const { uuid } = require('uuidv4');
 
 const router = require('./routes/route.js');
 const authRouter = require('./routes/auth.js');
+const signupRouter = require('./routes/signup.js');
 
 const app = express();
 const port = process.env.PORT | 8080;
@@ -37,6 +38,7 @@ app.use(
 
 app.use('/', router);
 app.use('/auth', authRouter);
+app.use('/signup', signupRouter);
 
 app.listen(port, () => {
   console.log(`http://localhost:${port}`);
