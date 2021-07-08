@@ -20,11 +20,6 @@ const handleSubmit = ({ $inputEmail, $inputPw, $errEmailBox, $errPwBox }, e) => 
   }
 };
 
-const testSubmit = (num, e) => {
-  e.preventDefault();
-  console.log(num);
-};
-
 const init = () => {
   const $loginForm = _.$('#login_form');
   const $inputEmail = _.$('#login_email');
@@ -32,6 +27,7 @@ const init = () => {
 
   const $errEmailBox = _.$('#login_email_err');
   const $errPwBox = _.$('#login_pw_err');
+
   $loginForm.addEventListener(
     'submit',
     handleSubmit.bind(null, { $inputEmail, $inputPw, $errEmailBox, $errPwBox }),
