@@ -4,8 +4,10 @@ html
         meta(http-equiv="X-UA-Compatible", content="IE=edge")
         meta(charset='utf-8')
         title #{pageTitle}
-        link(rel="stylesheet", href="pages/signupPage/userInfoPage/signup.css")
-        script(defer, src="pages/signupPage/userInfoPage/userInfo.js") 
+        //- link(rel="stylesheet", href="pages/signupPage/userInfoPage/userInfo.css")
+        //- script(type="module", defer, src="pages/signupPage/userInfoPage/userInfo.js") 
+        link(rel="stylesheet", href="./userInfo.css")
+        script(type="module", defer, src="./userInfo.js") 
     body 
         div.container    
             header.header 
@@ -14,17 +16,20 @@ html
                 div.right 
             section
                  form(action='/auth/signup',method='POST')
-                    div.flex_c.input_box
+                    div.flex_c.input_box#userinfo_email
                         label(for='email') 이메일
-                        input(type="email" id="email" name="email" placeholder="휴대전화 번호를 입력하세요.") 
-                    div.flex_c.input_box
-                        label(for='nickname') 닉네임
-                        input(type="text" id="nickname" name="nickname" placeholder="휴대전화 번호를 입력하세요.") 
-                    div.flex_c.input_box
-                        label(for='password') 비밀번호
-                        input(type="password" id="password" name="password" placeholder="휴대전화 번호를 입력하세요.") 
-                    div.flex_c.input_box
-                        label(for='birth') 생년월일
-                        input(type="number" id="birth" name="birth" placeholder="휴대전화 번호를 입력하세요.") 
+                        div
+                            input(type="email" id="email" name="email" placeholder="이메일을 입력하세요.") 
+                            button#check_email(type='button') 중복체크
+                    div.hidden
+                        div.flex_c.input_box
+                            label(for='nickname') 닉네임
+                            input(type="text" id="nickname" name="nickname" placeholder="휴대전화 번호를 입력하세요.") 
+                        div.flex_c.input_box
+                            label(for='password') 비밀번호
+                            input(type="password" id="password" name="password" placeholder="휴대전화 번호를 입력하세요.") 
+                        div.flex_c.input_box
+                            label(for='birth') 생년월일
+                            input(type="number" id="birth" name="birth" placeholder="휴대전화 번호를 입력하세요.") 
                     div
                         button.submitBtn 회원가입 하기

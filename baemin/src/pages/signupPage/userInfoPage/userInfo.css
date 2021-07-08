@@ -55,7 +55,8 @@ body {
   justify-content: flex-end;
 }
 
-.input_box > input {
+.input_box > input,
+#userinfo_email > div > input {
   border: none;
   border-bottom: 1px solid silver;
   height: 3rem;
@@ -77,4 +78,24 @@ body {
   border-radius: 0.5rem;
   background: #28c1bc;
   color: white;
+}
+
+#userinfo_email > div {
+  position: relative;
+  display: flex;
+}
+#userinfo_email > div > input {
+  flex: 1;
+}
+
+#userinfo_email.show > div::after {
+  position: absolute;
+  top: 1rem;
+  right: 75px;
+  color: green;
+  content: '✔';
+}
+
+.hidden {
+  display: none;
 }
