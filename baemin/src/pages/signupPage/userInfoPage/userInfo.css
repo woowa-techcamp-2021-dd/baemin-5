@@ -87,6 +87,9 @@ body {
   background: #28c1bc;
   color: white;
 }
+.submitBtn:disabled {
+  opacity: 0.5;
+}
 
 #userinfo_email_box > div {
   position: relative;

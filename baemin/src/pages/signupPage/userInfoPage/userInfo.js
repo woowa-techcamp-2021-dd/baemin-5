@@ -51,6 +51,26 @@ const isVaildPassword = (password) => {
   return true;
 };
 
+const getInsertedDotBirth = (birth) => {
+  birth = birth.replace(/\./g, '');
+  if (birth.length < 5) return birth;
+  if (birth.length < 7) return birth.slice(0, 4) + '.' + birth.slice(4);
+  return birth.slice(0, 4) + '.' + birth.slice(4, 6) + '.' + birth.slice(6);
+};
+
+const handleInputBirth = ({ target }) => {
+  const birth = target.value;
+
+  target.value = getInsertedDotBirth(birth);
+  if (target.value.length === 10) {
+    const date = new Date(target.value);
+    const isVaild = Date.parse(target.value);
+    if (isNaN(isVaild)) setConfirm(target, false);
+    else if (date.getMonth() + 1 !== +target.value.slice(5, 7)) setConfirm(target, false);
+    else setConfirm(target, true);
+  }
+};
+
 const init = () => {
   const $userInfoForm = _.$('#userinfo_form');
   //이메일 관련 돔
@@ -70,6 +90,8 @@ const init = () => {
   $nicknameInput.addEventListener('keyup', handleInputNickname);
 
   $passwordInput.addEventListener('keyup', handleInputPassword);
+
+  $birthInput.addEventListener('keyup', handleInputBirth);
 };
 
 init();
