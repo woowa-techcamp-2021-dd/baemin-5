@@ -15,21 +15,23 @@ html
                 div.flex_vc.center 회원가입
                 div.right 
             section
-                 form(action='/signup/userinfo',method='POST')
-                    div.flex_c.input_box
-                        label(for='email') 이메일
-                        div
-                            input(type="email" id="email" name="email" placeholder="이메일을 입력하세요.") 
-                            button#check_email(type='button') 중복체크
-                    div.hidden
-                        div.flex_c.input_box
+                 form(action='/signup/userinfo',method='POST')#userinfo_form
+                    div.flex_j
+                        div.flex_c.input_box#userinfo_email_box
+                            label(for='email') 이메일
+                            div.mark
+                                input(type="email" id="userinfo_email" name="userinfo_email" placeholder="이메일을 입력하세요.") 
+                        button#confirm_email_btn 중복체크
+                    div#userinfo_detail
+                        div.flex_c.input_box.mark
                             label(for='nickname') 닉네임
-                            input(type="text" id="nickname" name="nickname" placeholder="휴대전화 번호를 입력하세요.") 
-                        div.flex_c.input_box
+                            input(type="text" id="userinfo_nickname" name="userinfo_nickname" placeholder="휴대전화 번호를 입력하세요."
+                            maxlength="10") 
+                        div.flex_c.input_box.mark
                             label(for='password') 비밀번호
-                            input(type="password" id="password" name="password" placeholder="휴대전화 번호를 입력하세요.") 
-                        div.flex_c.input_box
+                            input(type="password" id="userinfo_password" name="userinfo_password" placeholder="비밀번호를 입력하세요.") 
+                        div.flex_c.input_box.mark
                             label(for='birth') 생년월일
-                            input(type="number" id="birth" name="birth" placeholder="휴대전화 번호를 입력하세요.") 
-                    div
-                        button.submitBtn 회원가입 하기
+                            input(type="number" id="userinfo_birth" name="userinfo_birth" placeholder="예) 2000.01.01") 
+                        div
+                            button.submitBtn 회원가입 하기
