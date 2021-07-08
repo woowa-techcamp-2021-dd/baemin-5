@@ -14,6 +14,14 @@ body {
   position: relative;
   margin: 0 10px;
 }
+.flex_j {
+  display: flex;
+  align-items: flex-end;
+}
+
+.flex_j > div {
+  flex: 1;
+}
 
 .flex_sb {
   display: flex;
@@ -55,7 +63,8 @@ body {
   justify-content: flex-end;
 }
 
-.input_box > input {
+.input_box > input,
+#userinfo_email_box > div > input {
   border: none;
   border-bottom: 1px solid silver;
   height: 3rem;
@@ -77,4 +86,34 @@ body {
   border-radius: 0.5rem;
   background: #28c1bc;
   color: white;
+}
+.submitBtn:disabled {
+  opacity: 0.5;
+}
+
+#userinfo_email_box > div {
+  position: relative;
+  display: flex;
+}
+#userinfo_email_box > div > input {
+  flex: 1;
+}
+
+.mark {
+  position: relative;
+}
+.mark::after {
+  position: absolute;
+  top: 50%;
+  right: 25px;
+  color: silver;
+  content: '✔';
+}
+
+.mark.confirmed::after {
+  color: green;
+}
+
+.hidden {
+  visibility: hidden;
 }

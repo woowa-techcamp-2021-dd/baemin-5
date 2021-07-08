@@ -14,16 +14,24 @@ router.post('/phone', (req, res) => {
 });
 
 router.post('/userinfo', (req, res) => {
-  const { email, password, nickname, birth } = req.body;
-  const encryptPassword = bcrypt.hashSync(password, SALT_ROUND);
+  const { userinfo_email, userinfo_password, userinfo_nickname, userinfo_birth } = req.body;
+  const encryptPassword = bcrypt.hashSync(userinfo_password, SALT_ROUND);
 
-  db.insert({ email, nickname, birth, password: encryptPassword }, (err, signupDB) => {
-    if (err) {
-      console.error(err);
-      return;
-    }
-    res.redirect('/login');
-  });
+  db.insert(
+    {
+      email: userinfo_email,
+      nickname: userinfo_nickname,
+      birth: userinfo_birth,
+      password: encryptPassword,
+    },
+    (err, signupDB) => {
+      if (err) {
+        console.error(err);
+        return;
+      }
+      res.redirect('/login');
+    },
+  );
 });
 
 module.exports = router;
