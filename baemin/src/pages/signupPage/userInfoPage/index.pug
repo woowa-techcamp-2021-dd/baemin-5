@@ -15,8 +15,8 @@ html
                 div.flex_vc.center 회원가입
                 div.right 
             section
-                 form(action='/auth/signup',method='POST')
-                    div.flex_c.input_box#userinfo_email
+                 form(action='/signup/userinfo',method='POST')
+                    div.flex_c.input_box
                         label(for='email') 이메일
                         div
                             input(type="email" id="email" name="email" placeholder="이메일을 입력하세요.") 

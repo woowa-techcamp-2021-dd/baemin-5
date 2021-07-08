@@ -1,4 +1,4 @@
-import { _ } from '../../../js/dom.js';
+import { _, setDisabledOfButton } from '../../../js/utils/dom.js';
 
 // 필수 체크 3개 다 되어야만 버튼 가능
 
@@ -11,15 +11,13 @@ const isCheckedNecssary = (necessaryList) => {
   return true;
 };
 
-const setDisabledOfNextButton = ($nextButton, isDisabled) => ($nextButton.disabled = isDisabled);
-
 const handleClickAllAgreement = (isAllCheck, checkList, $nextButton) => {
   checkList.forEach((checkItem) => (checkItem.checked = isAllCheck));
-  setDisabledOfNextButton($nextButton, !isAllCheck);
+  setDisabledOfButton($nextButton, !isAllCheck);
 };
 
 const handleClickNecssary = (necessaryList, $nextButton) =>
-  setDisabledOfNextButton($nextButton, !isCheckedNecssary(necessaryList));
+  setDisabledOfButton($nextButton, !isCheckedNecssary(necessaryList));
 
 const handleFormClick = ({ $nextButton, checkList, necessaryList }, { target }) => {
   if (target.type !== 'checkbox' || target.name === 'optional') return;
