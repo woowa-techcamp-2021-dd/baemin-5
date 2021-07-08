@@ -1,5 +1,4 @@
 import { _, setDisabledOfButton } from '../../../js/utils/dom.js';
-import 'regenerator-runtime/runtime';
 
 const getInsertedDashNumber = (phoneNumber, keyCode) => {
   const length = phoneNumber.length;
@@ -56,10 +55,7 @@ const init = () => {
   const $requestCertificationForm = _.$('#certification_request_form');
   const $reRequestBtn = _.$('#reSubmitBtn');
 
-  $phoneNumberInput.addEventListener(
-    'keyup',
-    handleInput.bind(null, { $requestCertificationBtn}),
-  );
+  $phoneNumberInput.addEventListener('keyup', handleInput.bind(null, { $requestCertificationBtn }));
 
   $requestCertificationForm.addEventListener(
     'submit',

@@ -21,7 +21,7 @@ router.get('/phone', (req, res) => {
   res.render('signupPage/phonePage', { pageTitle: `${TITLE}-휴대전화` });
 });
 
-router.get('/signup', (req, res) => {
+router.get('/userInfo', (req, res) => {
   res.render('signupPage/userInfoPage', { pageTitle: `${TITLE}-회원가입` });
 });
 

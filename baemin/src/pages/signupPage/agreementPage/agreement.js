@@ -1,4 +1,4 @@
-import { _, setDisabledOfButton } from '../../../js/dom.js';
+import { _, setDisabledOfButton } from '../../../js/utils/dom.js';
 
 // 필수 체크 3개 다 되어야만 버튼 가능
 
