@@ -10,7 +10,8 @@ router.get('/', (req, res) => {
 });
 
 router.get('/login', (req, res) => {
-  res.render('loginPage', { pageTitle: `${TITLE}` });
+  const wrongAuth = req.query.wrong === 'true';
+  res.render('loginPage', { pageTitle: `${TITLE}`, wrongAuth });
 });
 
 router.get('/agreement', (req, res) => {
