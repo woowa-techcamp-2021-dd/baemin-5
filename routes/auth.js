@@ -11,7 +11,7 @@ router.post('/login', (req, res) => {
 
     if (!findData) {
       console.log('그런 이메일 없수');
-      res.redirect('/login');
+      res.redirect('/login?wrong=true');
       return;
     }
 
@@ -19,7 +19,7 @@ router.post('/login', (req, res) => {
 
     if (!isValidPassword) {
       console.log('비밀번호 틀렸수');
-      res.redirect('/login');
+      res.redirect('/login?wrong=true');
       return;
     }
 

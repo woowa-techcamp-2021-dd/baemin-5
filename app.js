@@ -27,7 +27,6 @@ app.use(
     httpOnly: true,
     resave: true,
     saveUninitialized: true,
-    // maxAge: 100 * 60 * 60 * 24,
     genid: (req) => uuid(),
     cookie: {
       httpOnly: true,

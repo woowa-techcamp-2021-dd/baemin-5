@@ -42,11 +42,12 @@ const handleRequestCertification = async (
   e,
 ) => {
   e.preventDefault();
-  const certification = await getCertification();
+  if (e.target.id === 'certification_request_form') $certificationForm.classList.remove('hidden');
+  $cerificationInput.value = '';
 
+  const certification = await getCertification();
   $cerificationInput.value = certification;
   $nextBtn.disabled = false;
-  if (e.target.id === 'certification_request_form') $certificationForm.classList.remove('hidden');
 };
 
 const init = () => {

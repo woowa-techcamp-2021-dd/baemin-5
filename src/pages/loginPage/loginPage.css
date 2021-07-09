@@ -56,6 +56,10 @@ body {
   color: #f11111;
 }
 
+.wrong_login {
+  color: #f11111;
+}
+
 /* 아이디 비빌번호 찾기 */
 
 .login_find_btns {

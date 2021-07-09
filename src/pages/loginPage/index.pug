@@ -17,6 +17,8 @@ html
                     .login_err_box#login_email_err 
                     input.login_input(type="password", name="password", id="login_pw",placeholder="비밀번호")
                     .login_err_box#login_pw_err 
+                    if wrongAuth 
+                        .wrong_login 이메일 혹은 비밀번호가 잘못 되었습니다.
                     button(type="submit").login_btn 로그인해주세요 
                 .login_find_btns 
                     .login_find_btn 아이디 찾기
