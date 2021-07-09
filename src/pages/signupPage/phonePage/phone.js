@@ -43,6 +43,7 @@ const handleRequestCertification = async (
 ) => {
   e.preventDefault();
   if (e.target.id === 'certification_request_form') $certificationForm.classList.remove('hidden');
+  $cerificationInput.value = '';
 
   const certification = await getCertification();
   $cerificationInput.value = certification;
