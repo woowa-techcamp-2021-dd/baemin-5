@@ -11,7 +11,7 @@ const authRouter = require('./routes/auth.js');
 const signupRouter = require('./routes/signup.js');
 
 const app = express();
-const port = process.env.PORT | 8080;
+const port = process.env.PORT || 8080;
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'src/pages'));
 
@@ -27,7 +27,6 @@ app.use(
     httpOnly: true,
     resave: true,
     saveUninitialized: true,
-    // maxAge: 100 * 60 * 60 * 24,
     genid: (req) => uuid(),
     cookie: {
       httpOnly: true,
